@@ -1,0 +1,24 @@
+{
+  "devDependencies": {
+    "@nomiclabs/hardhat-etherscan": "^3.1.5",
+    "dotenv": "^16.0.3",
+    "ethers": "5.4.0",
+    "fs-extra": "^11.1.0",
+    "hardhat": "^2.12.6",
+    "hardhat-deploy": "^0.11.23",
+    "solc": "^0.8.18"
+  },
+  "scripts": {
+    "test": "yarn hardhat test",
+    "test:staging": "yarn hardhat test --network goerli",
+    "lint": "yarn solhint 'contracts/*.sol'",
+    "lint:fix": "yarn solhint 'contracts/*.sol' --fix",
+    "format": "yarn prettier --write .",
+    "coverage": "yarn hardhat coverage",
+    "compile": "yarn solcjs --bin --abi --include-path node_modules/ --base-path . -o . "
+  },
+  "dependencies": {
+    "@json-rpc-tools/provider": "^1.7.6",
+    "vscode-jsonrpc": "^8.0.2"
+  }
+}
