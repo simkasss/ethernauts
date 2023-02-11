@@ -4,6 +4,7 @@ require("@nomiclabs/hardhat-etherscan");
 require("dotenv").config();
 require("solidity-coverage");
 require("hardhat-deploy");
+require("@nomiclabs/hardhat-web3");
 
 /**
  * @type import('hardhat/config').HardhatUserConfig
@@ -27,7 +28,7 @@ module.exports = {
     },
   },
   solidity: {
-    compilers: [{ version: "0.8.0" }],
+    compilers: [{ version: "0.8.0" }, { version: "0.8.4" }],
   },
   namedAccounts: {
     deployer: {

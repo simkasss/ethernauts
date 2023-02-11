@@ -3,6 +3,7 @@
     "@nomiclabs/hardhat-ethers": "npm:hardhat-deploy-ethers",
     "@nomiclabs/hardhat-etherscan": "^3.1.5",
     "@nomiclabs/hardhat-waffle": "^2.0.3",
+    "@nomiclabs/hardhat-web3": "^2.0.0",
     "dotenv": "^16.0.3",
     "ethereum-waffle": "^3.2.0",
     "ethers": "5.4.0",
@@ -12,7 +13,9 @@
     "hardhat-deploy": "^0.11.23",
     "hardhat-gas-reporter": "^1.0.9",
     "solc": "^0.8.18",
-    "solidity-coverage": "^0.8.2"
+    "solidity-coverage": "^0.8.2",
+    "web3": "^1.8.2",
+    "web3-utils": "^1.8.2"
   },
   "scripts": {
     "compile": "yarn solcjs --bin --abi --include-path node_modules --base-path . -o . "
